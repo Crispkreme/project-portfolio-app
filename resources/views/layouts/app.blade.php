@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
     <head>
+        
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -12,25 +14,58 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite([
+
+            'public/css/jquery-jvectormap-1.2.2.css',
+            'public/css/dataTables.bootstrap4.min.css',
+            'public/css/responsive.bootstrap4.min.css',
+            'public/css/bootstrap.min.css',
+            'public/css/icons.min.css',
+            'public/css/admin-app.min.css',
+            'resources/css/app.css',
+            
+            'public/js/jquery.min.js',
+            'public/js/bootstrap.bundle.min.js',
+            'public/js/metisMenu.min.js',
+            'public/js/simplebar.min.js',
+            'public/js/waves.min.js',
+            'public/js/apexcharts.min.js',
+            'public/js/jquery-jvectormap-1.2.2.min.js',
+            'public/js/jquery-jvectormap-us-merc-en.js',
+            'public/js/jquery.dataTables.min.js',
+            'public/js/dataTables.bootstrap4.min.js',
+            'public/js/responsive.bootstrap4.min.js',
+            'public/pages/js/dashboard.init.js',
+            'public/js/admin-app.js',
+            'resources/js/app.js',
+            
+        ])
+
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+    <body data-topbar="dark">
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+        <div id="layout-wrapper">
+
+            @include('partials/admin.header')
+
+            @include('partials/admin.vertical-menu')
+
+            <div class="main-content">
+
+                <div class="page-content">
+                    {{ $slot }}
+                </div>
+            
+                @include('partials/admin.footer')
+                
+            </div>
+
         </div>
+
+        @include('partials/admin.sidebar')
+
+        <div class="rightbar-overlay"></div>
+
     </body>
 </html>
