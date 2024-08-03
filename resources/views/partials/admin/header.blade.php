@@ -65,7 +65,7 @@
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{{ route('profile.edit') }}">
                         <i class="ri-user-line align-middle me-1"></i> Profile
                     </a>
                     <a class="dropdown-item" href="#">
