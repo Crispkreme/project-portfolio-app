@@ -13,6 +13,8 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        
         <!-- Scripts -->
         @vite([
 
@@ -24,7 +26,6 @@
             'public/css/admin-app.min.css',
             'resources/css/app.css',
             
-            'public/js/jquery.min.js',
             'public/js/bootstrap.bundle.min.js',
             'public/js/metisMenu.min.js',
             'public/js/simplebar.min.js',
