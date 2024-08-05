@@ -21,7 +21,6 @@
             'public/css/admin-app.min.css',
             'resources/css/app.css',
             
-            'public/js/jquery.min.js',
             'public/js/bootstrap.bundle.min.js',
             'public/js/metisMenu.min.js',
             'public/js/simplebar.min.js',

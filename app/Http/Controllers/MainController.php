@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 
@@ -38,12 +39,12 @@ class MainController extends Controller
         $data->name = $request->name;
         $data->username = $request->username;
         $data->email = $request->email;
-    
+        
         if ($request->file('profile')) {
             $file = $request->file('profile');
             $filename = date('YmdHi') . $file->getClientOriginalName();
-            $file->move(public_path('storage/uploads'), $filename);
-            $data->profile = $filename;
+            $filePath = $file->storeAs('public/uploads', $filename);
+            $data->profile = Storage::url($filePath);
         }
     
         $data->save();

@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="card">
-                    <img class="card-img-top img-fluid" src="assets/images/small/img-5.jpg" alt="Card image cap">
+                    <img class="card-img-top img-fluid" src="{{ (!empty($profile->profile)) ? url($profile->profile) : url('public/no-image.jpg') }}" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title">{{ ucwords(strtolower($profile->name)) }}</h4>
                         <p class="card-text">{{ $profile->email }}</p>
@@ -71,13 +71,13 @@
                             <div class="row mb-3">
                                 <label for="image" class="col-sm-2 col-form-label">Profile</label>
                                 <div class="col-sm-10">
-                                    <input type="file" class="form-control" id="image" id="profile">
+                                    <input type="file" class="form-control" id="image" name="profile">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <img id="showImage" class="card-img-top img-fluid" src="assets/images/small/img-5.jpg" alt="Card image cap" style="width:100px;">
+                                    <img id="showImage" class="card-img-top img-fluid" src="{{ (!empty($profile->profile)) ? url($profile->profile) : url('public/no-image.jpg') }}" alt="Card image cap" style="width:100px;">
                                 </div>
                             </div>
 
@@ -90,9 +90,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#image').change(function(e) {
