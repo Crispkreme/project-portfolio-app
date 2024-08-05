@@ -11,20 +11,53 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
+        @vite([
+            'public/css/bootstrap.min.css',
+            'public/css/animate.min.css',
+            'public/css/magnific-popup.css',
+            'public/css/fontawesome-all.min.css',
+            'public/css/slick.css',
+            'public/css/default.css',
+            'public/css/guest-style.css',
+            'public/css/responsive.css',
+            
+            'public/js/bootstrap.bundle.min.js',
+            'public/js/isotope.pkgd.min.js',
+            'public/js/imagesloaded.pkgd.min.js',
+            'public/js/jquery.magnific-popup.min.js',
+            'public/js/element-in-view.js',
+            'public/js/slick.min.js',
+            'public/js/ajax-form.js',
+            'public/js/wow.min.js',
+            'public/js/plugins.js',
+            'public/js/guest-scripts.js',
+        ])
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
-            </div>
+    </head>
+    <body>
+
+        <!-- preloader-start -->
+        <div id="preloader">
+            <div class="rasalina-spin-box"></div>
         </div>
+        <!-- preloader-end -->
+
+		<!-- Scroll-top -->
+        <button class="scroll-top scroll-to-target" data-target="html">
+            <i class="fas fa-angle-up"></i>
+        </button>
+        <!-- Scroll-top-end-->
+
+        @include('partials/guest.header')
+
+        <main>
+            {{ $slot }}
+        </main>
+
+        @include('partials/admin.footer')
+
     </body>
 </html>
