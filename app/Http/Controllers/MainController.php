@@ -48,7 +48,12 @@ class MainController extends Controller
         }
     
         $data->save();
-    
+
+        session()->flash('notification', [
+            'message' => 'Admin Profile updated successfully',
+            'alert-type' => 'success',
+        ]);
+
         return view('pages.admin.profile.view-profile', [
             'profile' => $data,
         ]);

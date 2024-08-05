@@ -29,7 +29,7 @@
                         </p>
                         <a href="{{ route('edit.profile') }}">
                             <button type="button" class="btn btn-primary waves-effect waves-light">
-                                <i class="ri-close-line align-middle me-2"></i> Edit Profile
+                                <i class="ri-edit-circle-fill align-middle me-2"></i> Edit Profile
                             </button>
                         </a>
                     </div>
@@ -80,7 +80,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-success waves-effect waves-light" disabled>
-                                <i class="ri-close-line align-middle me-2"></i> Update Profile
+                                <i class="ri-pencil-line align-middle me-2"></i></i> Update Profile
                             </button>
 
                         </form>
