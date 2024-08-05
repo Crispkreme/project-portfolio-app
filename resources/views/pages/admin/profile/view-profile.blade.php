@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="card">
-                    <img class="card-img-top img-fluid" src="assets/images/small/img-5.jpg" alt="Card image cap">
+                    <img class="card-img-top img-fluid" src="{{ (!empty($profile->profile)) ? url($profile->profile) : url('public/no-image.jpg') }}" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title">{{ ucwords(strtolower($profile->name)) }}</h4>
                         <p class="card-text">{{ $profile->email }}</p>
