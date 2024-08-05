@@ -36,6 +36,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/view/profile', [MainController::class, 'viewProfile'])->name('view.profile');
     Route::get('/edit/profile', [MainController::class, 'editProfile'])->name('edit.profile');
     Route::post('/update/profile', [MainController::class, 'updateProfile'])->name('update.profile');
+
+    Route::get('/view/change/password', [MainController::class, 'viewChangePassword'])->name('view.change.password');
+    Route::post('/update/change/password', [MainController::class, 'updateChangePassword'])->name('update.change.password');
 });
 
 require __DIR__.'/auth.php';

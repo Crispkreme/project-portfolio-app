@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 
 use App\Models\User;
+
+use App\Http\Requests\Auth\ChangePassword;
 
 class MainController extends Controller
 {
@@ -59,4 +62,40 @@ class MainController extends Controller
         ]);
     }
     
+    public function viewChangePassword() {
+
+        $id = Auth::user()->id;
+        $profile = User::find($id);
+
+        return view('pages.admin.auth.change-password', [
+            'profile' => $profile,
+        ]);
+    }
+
+    public function updateChangePassword(ChangePassword $request) {
+
+        $user = Auth::user();
+
+        if (!$user) {
+            return back()->withErrors([
+                'user' => 'User not authenticated or not found'
+            ]);
+        }
+    
+        if (!Hash::check($request->current_password, $user->password)) {
+            return back()->withErrors([
+                'current_password' => 'Current password is incorrect'
+            ]);
+        }
+    
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+    
+        session()->flash('notification', [
+            'message' => 'Password updated successfully',
+            'alert-type' => 'success',
+        ]);
+    
+        return redirect()->route('admin.dashboard');
+    }
 }

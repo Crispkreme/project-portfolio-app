@@ -68,8 +68,8 @@
                     <a class="dropdown-item" href="{{ route('view.profile') }}">
                         <i class="ri-user-line align-middle me-1"></i> Profile
                     </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="ri-wallet-2-line align-middle me-1"></i> My Wallet
+                    <a class="dropdown-item" href="{{ route('view.change.password') }}">
+                        <i class="ri-lock-password-line align-middle me-1"></i> Change Password
                     </a>
                     <a class="dropdown-item d-block" href="#">
                         <span class="badge bg-success float-end mt-1">11</span>
