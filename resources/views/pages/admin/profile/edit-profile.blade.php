@@ -21,15 +21,15 @@
                 <div class="card">
                     <img class="card-img-top img-fluid" src="{{ (!empty($profile->profile)) ? url($profile->profile) : url('public/no-image.jpg') }}" alt="Card image cap">
                     <div class="card-body">
-                        <h4 class="card-title">{{ ucwords(strtolower($profile->name)) }}</h4>
-                        <p class="card-text">{{ $profile->email }}</p>
-                        <p class="card-text">{{ $profile->username }}</p>
-                        <p class="card-text">
-                            <small class="text-muted">{{ $profile->created_at->format('F j, Y g A') }}</small>
+                        <h4 class="mb-2">Name: <span class="card-title">{{ ucwords(strtolower($profile->name)) }}</span></h4>
+                        <p class="card-text mb-2">Email: {{ $profile->email }}</p>
+                        <p class="card-text mb-3">Username: {{ $profile->username }}</p>
+                        <p class="card-text mb-3">
+                            <small class="text-muted">Created at: {{ $profile->created_at->format('F j, Y g A') }}</small>
                         </p>
-                        <a href="">
-                            <button type="button" class="btn btn-primary waves-effect waves-light" disabled>
-                                <i class="ri-close-line align-middle me-2"></i> Edit Profile
+                        <a href="{{ route('view.profile') }}">
+                            <button type="button" class="btn btn-primary waves-effect waves-light">
+                                <i class="ri-edit-circle-fill align-middle me-2"></i> View Profile
                             </button>
                         </a>
                     </div>
@@ -82,7 +82,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-success waves-effect waves-light">
-                                <i class="ri-close-line align-middle me-2"></i> Update Profile
+                                <i class="ri-pencil-line align-middle me-2"></i> Update Profile
                             </button>
 
                         </form>
