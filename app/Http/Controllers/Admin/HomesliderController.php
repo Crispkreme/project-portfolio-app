@@ -16,4 +16,8 @@ class HomesliderController extends Controller
             'homeslider' => $homeslider,
         ]);
     }
+
+    public function updateHomeSlider() {
+        
+    }
 }

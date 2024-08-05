@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/update/change/password', [MainController::class, 'updateChangePassword'])->name('update.change.password');
 
     Route::get('/view/home/slider', [HomesliderController::class, 'viewHomeSlider'])->name('view.home.slider');
+    Route::get('/update/home/slider', [HomesliderController::class, 'updateHomeSlider'])->name('update.home.slider');
 });
 
 require __DIR__.'/auth.php';

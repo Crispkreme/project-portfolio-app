@@ -30,6 +30,8 @@
                         </p>
 
                         <form action="" class="mt-3">
+                            
+                            <input type="hidden" name="id" value="{{ $homeslider->id }}">
                             <div class="row mb-3">
                                 <label for="title-text-input" class="col-sm-2 col-form-label">Title</label>
                                 <div class="col-sm-10">
@@ -43,21 +45,21 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="video_url-text-input" class="col-sm-2 col-form-label">video_url</label>
+                                <label for="video-url-text-input" class="col-sm-2 col-form-label">Video URL</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" name="video_url" type="text" value="{{ $homeslider->video_url }}" id="video_url-text-input">
+                                    <input class="form-control" name="video-url" type="text" value="{{ $homeslider->video_url }}" id="video-url-text-input">
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="image" class="col-sm-2 col-form-label">Profile</label>
+                                <label for="home-slide-image" class="col-sm-2 col-form-label">Slider</label>
                                 <div class="col-sm-10">
-                                    <input type="file" class="form-control" id="profile">
+                                    <input type="file" class="form-control" id="home-slide-image">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <img id="showImage" class="card-img-top img-fluid" src="{{ $homeslider->home_slide }}" alt="Card image cap" style="width:100px;">
+                                    <img id="showImage" class="card-img-top img-fluid" src="{{ (!empty($homeslider->home_slide)) ? url($homeslider->home_slide) : asset('no-image.jpg') }}" alt="Card image cap" style="width:100px;">
                                 </div>
                             </div>
 
@@ -72,4 +74,16 @@
         </div>
 
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#home-slide-image').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+        });
+    </script>
 </x-app-layout>
