@@ -24,12 +24,11 @@
     
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i>
+                        <i class="ri-landscape-fill"></i>
                         <span>Home Slider</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('view.home.slider') }}">Add Home Slider</a></li>
-                        <li><a href="email-read.html">Read Email</a></li>
+                        <li><a href="{{ route('view.home.slider') }}">Home Slider</a></li>
                     </ul>
                 </li>
 
