@@ -15,6 +15,16 @@ use App\Http\Requests\Auth\ChangePassword;
 
 class MainController extends Controller
 {
+    public function adminDashboard() {
+
+        session()->flash('notification', [
+            'message' => 'Access Granted',
+            'alert-type' => 'success',
+        ]);
+
+        return view('pages.admin.dashboard');
+    }
+
     public function viewProfile() {
 
         $id = Auth::user()->id;

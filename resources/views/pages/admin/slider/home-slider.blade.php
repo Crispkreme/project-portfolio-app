@@ -29,7 +29,7 @@
                             <small class="text-muted">Last updated 3 mins ago</small>
                         </p>
 
-                        <form action="" class="mt-3">
+                        <form action="{{ route('update.home.slider') }}" class="mt-3" method="POST">
                             
                             <input type="hidden" name="id" value="{{ $homeslider->id }}">
                             <div class="row mb-3">
@@ -51,9 +51,9 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="home-slide-image" class="col-sm-2 col-form-label">Slider</label>
+                                <label class="col-sm-2 col-form-label">Slider</label>
                                 <div class="col-sm-10">
-                                    <input type="file" class="form-control" id="home-slide-image">
+                                    <input type="file" class="form-control" id="homeSlideImage">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -77,7 +77,7 @@
 
     <script>
         $(document).ready(function() {
-            $('#home-slide-image').change(function(e) {
+            $('#homeSlideImage').change(function(e) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
                     $('#showImage').attr('src', e.target.result);
