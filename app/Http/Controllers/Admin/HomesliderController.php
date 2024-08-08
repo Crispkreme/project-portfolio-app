@@ -54,7 +54,7 @@ class HomesliderController extends Controller
                     }
                 }
 
-                $filePath = 'public/uploads/banner/' . $filename;  
+                $filePath = 'public/uploads/banners/' . $filename;  
 
                 $image = Image::make($file);
                 $image->resize(1000, 1000);
