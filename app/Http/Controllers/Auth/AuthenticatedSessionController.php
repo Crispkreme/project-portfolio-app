@@ -3,12 +3,20 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+
 use App\Http\Requests\Auth\LoginRequest;
+
 use App\Providers\RouteServiceProvider;
+
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+
 use Illuminate\View\View;
+
+use Exception;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -25,15 +33,29 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
-        $request->session()->regenerate();
+        try {
 
-        session()->flash('notification', [
-            'message' => 'Access Granted',
-            'alert-type' => 'success',
-        ]);
+            $request->authenticate();
+            $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+            $user = Auth::user();
+
+            if ($user) {
+
+                if ($user->usertype === 'admin') {
+                    return redirect()->route('admin.dashboard');
+                } else {
+                    return redirect()->intended(RouteServiceProvider::HOME);
+                }
+            }
+
+            return redirect()->route('login')->with('error', 'Authentication failed');
+
+        } catch (Exception $e) {
+
+            Log::error('Authentication exception:', ['message' => $e->getMessage()]);
+
+        }
     }
 
     /**

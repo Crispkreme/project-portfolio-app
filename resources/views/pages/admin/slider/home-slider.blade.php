@@ -29,8 +29,10 @@
                             <small class="text-muted">Last updated 3 mins ago</small>
                         </p>
 
-                        <form action="" class="mt-3">
+                        <form action="{{ route('update.home.slider') }}" class="mt-3" method="POST" enctype="multipart/form-data">
                             
+                            @csrf
+
                             <input type="hidden" name="id" value="{{ $homeslider->id }}">
                             <div class="row mb-3">
                                 <label for="title-text-input" class="col-sm-2 col-form-label">Title</label>
@@ -47,13 +49,13 @@
                             <div class="row mb-3">
                                 <label for="video-url-text-input" class="col-sm-2 col-form-label">Video URL</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" name="video-url" type="text" value="{{ $homeslider->video_url }}" id="video-url-text-input">
+                                    <input class="form-control" name="video_url" type="text" value="{{ $homeslider->video_url }}" id="video-url-text-input">
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="home-slide-image" class="col-sm-2 col-form-label">Slider</label>
+                                <label class="col-sm-2 col-form-label">Slider</label>
                                 <div class="col-sm-10">
-                                    <input type="file" class="form-control" id="home-slide-image">
+                                    <input type="file" class="form-control" id="homeSlideImage" name="home_slide" value="{{ $homeslider->home_slide }}">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -75,15 +77,17 @@
 
     </div>
 
-    <script>
-        $(document).ready(function() {
-            $('#home-slide-image').change(function(e) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#showImage').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(e.target.files['0']);
+    @push('scripts')
+        <script>
+            $(document).ready(function() {
+                $('#homeSlideImage').change(function(e) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#showImage').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(e.target.files['0']);
+                });
             });
-        });
-    </script>
+        </script>
+    @endpush
 </x-app-layout>

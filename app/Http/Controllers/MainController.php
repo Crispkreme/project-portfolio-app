@@ -2,19 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
+use App\Http\Requests\Auth\ChangePassword;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 use App\Models\User;
-
-use App\Http\Requests\Auth\ChangePassword;
+use App\Models\HomeSlide;
 
 class MainController extends Controller
 {
+    public function index() {
+        $homeslider = HomeSlide::find(1);
+        
+        return view('welcome', [
+            'homeslider' => $homeslider,
+        ]);
+    }
+
+    public function adminDashboard() {
+
+        session()->flash('notification', [
+            'message' => 'Access Granted',
+            'alert-type' => 'success',
+        ]);
+
+        return view('pages.admin.dashboard');
+    }
+
     public function viewProfile() {
 
         $id = Auth::user()->id;
