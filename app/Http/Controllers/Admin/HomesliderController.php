@@ -43,16 +43,21 @@ class HomesliderController extends Controller
                 
                 $file = $request->file('home_slide');
                 $filename = $file->getClientOriginalName();
-                
-                if(Storage::disk('public')->exists($filename)) {
-                    dd('data found');
-                    Storage::delete('file.jpg');
+                $oldpath = $homeSlide->home_slide;
+                $oldfilename = basename($oldpath);
+
+                $oldfilepath = 'uploads/' . $oldfilename;
+
+                if ($oldfilename == $filename) {
+                    if (Storage::disk('public')->exists($oldfilepath)) {
+                        Storage::disk('public')->delete($oldfilepath);
+                    }
                 }
-                
-                $filePath = 'public/uploads/' . $filename;  
+
+                $filePath = 'public/uploads/banner/' . $filename;  
 
                 $image = Image::make($file);
-                $image->resize(636, 852);
+                $image->resize(1000, 1000);
                 $image->save(storage_path('app/' . $filePath));
                 $imageStorage = Storage::url($filePath);
     
