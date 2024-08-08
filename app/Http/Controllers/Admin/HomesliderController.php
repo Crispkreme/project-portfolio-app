@@ -21,7 +21,7 @@ class HomesliderController extends Controller
     {
         $homeslider = HomeSlide::find(1);
         
-        return view('pages.admin.slider.home-slider', [
+        return view('pages.admin.home-slider.view-home', [
             'homeslider' => $homeslider,
         ]);
     }
@@ -72,10 +72,13 @@ class HomesliderController extends Controller
             ]);
     
             return redirect()->back();
+
         } catch (Exception $e) {
+
             Log::error('Exception during home slide update:', ['message' => $e->getMessage()]);
             dd('Error:', ['message' => $e->getMessage()]);
             return redirect()->back()->with('error', 'An error occurred while updating the home slide.');
+            
         }
 
     }

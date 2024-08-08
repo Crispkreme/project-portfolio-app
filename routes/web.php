@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MainController;
 
@@ -32,8 +33,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/view/change/password', [MainController::class, 'viewChangePassword'])->name('view.change.password');
     Route::post('/update/change/password', [MainController::class, 'updateChangePassword'])->name('update.change.password');
 
+    // HOME SLIDER
     Route::get('/view/home/slider', [HomesliderController::class, 'viewHomeSlider'])->name('view.home.slider');
     Route::post('/update/home/slider', [HomesliderController::class, 'updateHomeSlider'])->name('update.home.slider');
+
+    // CLIENTS
+    Route::get('/view/client/slider', [ClientController::class, 'viewClient'])->name('view.client.slider');
+    Route::get('/form/client/slider', [ClientController::class, 'formClient'])->name('form.client.slider');
+    Route::post('/store/client/slider', [ClientController::class, 'storeClient'])->name('store.client.slider');
 });
 
 require __DIR__.'/auth.php';
