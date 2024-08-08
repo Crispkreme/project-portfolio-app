@@ -16,10 +16,10 @@ class HomeSliderSeeder extends Seeder
     public function run()
     {
         HomeSlide::create([
-            'title'       => 'title',
-            'description' => 'description',
+            'title'       => 'I will give you Best Product in the shortest time.',
+            'description' => 'Im a Rasalina based product design & visual designer focused on crafting clean & user‑friendly experiences',
             'home_slide'  => '',
-            'video_url'   => 'video_url',
+            'video_url'   => 'https://www.youtube.com/watch?v=mh45igK4Esw',
         ]);
     }
 }

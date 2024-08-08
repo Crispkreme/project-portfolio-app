@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\PortfolioController;
 
 use App\Http\Controllers\Admin\HomesliderController;
 
@@ -19,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [MainController::class, 'index'])->name('index');
+Route::get('/', [PortfolioController::class, 'index'])->name('index');
+Route::get('/about/page', [PortfolioController::class, 'aboutPage'])->name('about.page');
 
 // ADMIN FUNCTIONALITY
 Route::middleware(['auth', 'verified'])->group(function () {
@@ -41,6 +44,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/view/client/slider', [ClientController::class, 'viewClient'])->name('view.client.slider');
     Route::get('/form/client/slider', [ClientController::class, 'formClient'])->name('form.client.slider');
     Route::post('/store/client/slider', [ClientController::class, 'storeClient'])->name('store.client.slider');
+
+    // ABOUT
+    Route::get('/view/about/slider', [AboutController::class, 'viewAboutSlider'])->name('view.about.slider');
+    Route::get('/update/about/slider', [AboutController::class, 'updateAboutSlider'])->name('update.about.slider');
 });
 
 require __DIR__.'/auth.php';

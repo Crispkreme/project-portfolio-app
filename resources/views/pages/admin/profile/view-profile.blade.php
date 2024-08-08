@@ -67,6 +67,12 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
+                                <label for="phone-text-input" class="col-sm-2 col-form-label">Phone</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" name="phone" type="text" value="{{ $profile->phone }}" id="phone-text-input" readonly>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
                                 <label for="image" class="col-sm-2 col-form-label">Profile</label>
                                 <div class="col-sm-10">
                                     <input type="file" class="form-control" id="profile" readonly>
