@@ -29,7 +29,7 @@
                             <small class="text-muted">Last updated 3 mins ago</small>
                         </p>
 
-                        <form action="{{ route('update.home.slider') }}" class="mt-3" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('store.client.slider') }}" class="mt-3" method="POST" enctype="multipart/form-data">
                             
                             @csrf
 
@@ -60,7 +60,7 @@
                             <div class="row mb-3">
                                 <label for="basicpill-description-input" class="col-sm-2 col-form-label">Description</label>
                                 <div class="col-sm-10">
-                                    <textarea id="basicpill-description-input" class="form-control" rows="2"></textarea>
+                                    <textarea name="description" id="basicpill-description-input" class="form-control" rows="2"></textarea>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -72,7 +72,7 @@
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label">Profile</label>
                                 <div class="col-sm-10">
-                                    <input type="file" class="form-control" id="homeSlideImage" name="home_slide">
+                                    <input type="file" class="form-control" id="clientSliderImage" name="profile">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -97,7 +97,7 @@
     @push('scripts')
         <script>
             $(document).ready(function() {
-                $('#homeSlideImage').change(function(e) {
+                $('#clientSliderImage').change(function(e) {
                     var reader = new FileReader();
                     reader.onload = function(e) {
                         $('#showImage').attr('src', e.target.result);

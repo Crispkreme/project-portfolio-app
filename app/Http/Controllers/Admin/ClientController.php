@@ -21,4 +21,9 @@ class ClientController extends Controller
     {
         return view('pages.admin.client-slider.add-form-client');
     }
+
+    public function storeClient(Request $request)
+    {
+        dd('dd');
+    }
 }

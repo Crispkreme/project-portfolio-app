@@ -40,6 +40,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // CLIENTS
     Route::get('/view/client/slider', [ClientController::class, 'viewClient'])->name('view.client.slider');
     Route::get('/form/client/slider', [ClientController::class, 'formClient'])->name('form.client.slider');
+    Route::post('/store/client/slider', [ClientController::class, 'storeClient'])->name('store.client.slider');
 });
 
 require __DIR__.'/auth.php';
