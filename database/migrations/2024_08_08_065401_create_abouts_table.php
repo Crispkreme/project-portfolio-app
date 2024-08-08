@@ -23,7 +23,6 @@ return new class extends Migration
             $table->text('experience_summary')->nullable();            
             // $table->json('social_links')->nullable();
             // $table->json('skills')->nullable();
-            $table->string('profile_picture')->nullable();
             $table->foreign('user_id')
                   ->references('id')
                   ->on('users')

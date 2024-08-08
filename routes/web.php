@@ -47,7 +47,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // ABOUT
     Route::get('/view/about/slider', [AboutController::class, 'viewAboutSlider'])->name('view.about.slider');
-    Route::get('/update/about/slider', [AboutController::class, 'updateAboutSlider'])->name('update.about.slider');
+    Route::post('/update/about/slider', [AboutController::class, 'updateAboutSlider'])->name('update.about.slider');
 });
 
 require __DIR__.'/auth.php';

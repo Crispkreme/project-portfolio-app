@@ -14,7 +14,6 @@ class About extends Model
         'bio',
         'experience',
         'experience_summary',
-        'profile_picture',
     ];
 
     public function user() {

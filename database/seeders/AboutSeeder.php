@@ -20,7 +20,6 @@ class AboutSeeder extends Seeder
             'bio' => '',
             'experience' => '',
             'experience_summary' => '',
-            'profile_picture' => '',
         ]);
     }
 }
