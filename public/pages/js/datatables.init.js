@@ -64,16 +64,16 @@ $(document).ready(function () {
             .buttons()
             .container()
             .appendTo("#datatable-buttons_wrapper .col-md-6:eq(0)"),
-        $(".dataTables_length select").addClass("form-select form-select-sm"),
-        $("#alternative-page-datatable").DataTable({
+            $(".dataTables_length select").addClass("form-select form-select-sm"),
+            $("#alternative-page-datatable").DataTable({
             pagingType: "full_numbers",
             drawCallback: function () {
                 $(".dataTables_paginate > .pagination").addClass(
                     "pagination-rounded"
                 ),
-                    $(".dataTables_length select").addClass(
-                        "form-select form-select-sm"
-                    );
+                $(".dataTables_length select").addClass(
+                    "form-select form-select-sm"
+                );
             },
         }),
         $("#scroll-vertical-datatable").DataTable({
@@ -103,9 +103,9 @@ $(document).ready(function () {
                 $(".dataTables_paginate > .pagination").addClass(
                     "pagination-rounded"
                 ),
-                    $(".dataTables_length select").addClass(
-                        "form-select form-select-sm"
-                    );
+                $(".dataTables_length select").addClass(
+                    "form-select form-select-sm"
+                );
             },
             columnDefs: [{ visible: !1, targets: -1 }],
         }),
@@ -121,9 +121,9 @@ $(document).ready(function () {
                 $(".dataTables_paginate > .pagination").addClass(
                     "pagination-rounded"
                 ),
-                    $(".dataTables_length select").addClass(
-                        "form-select form-select-sm"
-                    );
+                $(".dataTables_length select").addClass(
+                    "form-select form-select-sm"
+                );
             },
         });
 });

@@ -17,6 +17,7 @@
         
         <!-- Scripts -->
         @vite([
+            'public/css/prettify.css',
             'public/css/jquery-jvectormap-1.2.2.css',
             'public/css/dataTables.bootstrap4.min.css',
             'public/css/responsive.bootstrap4.min.css',
@@ -26,13 +27,13 @@
             'public/css/icons.min.css',
             'public/css/admin-app.min.css',
             'resources/css/app.css',
+
             'public/js/bootstrap.bundle.min.js',
             'public/js/metisMenu.min.js',
             'public/js/simplebar.min.js',
             'public/js/waves.min.js',
             'public/js/table-edits.min.js',
-            'public/js/table-edits.min.js',
-
+            'public/js/prettify.js',
             'public/js/apexcharts.min.js',
             'public/js/jquery-jvectormap-1.2.2.min.js',
             'public/js/jquery-jvectormap-us-merc-en.js',
@@ -50,9 +51,11 @@
             'public/js/dataTables.keyTable.min.js',
             'public/js/dataTables.select.min.js',
             'public/js/dataTables.responsive.min.js',
+            'public/js/jquery.bootstrap.wizard.min.js',
             'public/pages/js/dashboard.init.js',
             'public/pages/js/table-editable.init.js',
             'public/pages/js/datatables.init.js',
+            'public/pages/js/form-wizard.init.js',
             'public/js/admin-app.js',
             'resources/js/app.js',
         ])

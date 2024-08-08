@@ -25,7 +25,11 @@
                         <p class="card-title-desc">
                             This example shows the DataTables table body scrolling in the vertical direction. This can generally be seen as an alternative method to pagination for displaying a large table in a fairly small vertical area, and as such pagination has been disabled here (note that this is not mandatory, it will work just fine with pagination enabled as well!).
                         </p>
-        
+                        <div class="col-12 mb-2 d-flex justify-content-end">
+                            <button type="button" class="btn btn-primary waves-effect waves-light" onclick="window.location='{{ route("form.client.slider") }}'">
+                                Add Client <i class="ri-user-add-line align-middle ms-2"></i> 
+                            </button>
+                        </div>                        
                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>

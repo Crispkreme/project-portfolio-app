@@ -16,4 +16,9 @@ class ClientController extends Controller
             'clientSlider' => $clientSlider,
         ]);
     }
+
+    public function formClient()
+    {
+        return view('pages.admin.client-slider.add-form-client');
+    }
 }
