@@ -1,0 +1,43 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('abouts', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            // $table->text('education')->nullable();
+            // $table->text('hobbies')->nullable();
+            $table->text('bio')->nullable();
+            $table->text('experience')->nullable();
+            $table->text('experience_summary')->nullable();            
+            // $table->json('social_links')->nullable();
+            // $table->json('skills')->nullable();
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('abouts');
+    }
+};

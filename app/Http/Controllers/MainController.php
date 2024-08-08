@@ -15,14 +15,6 @@ use App\Models\HomeSlide;
 
 class MainController extends Controller
 {
-    public function index() {
-        $homeslider = HomeSlide::find(1);
-        
-        return view('welcome', [
-            'homeslider' => $homeslider,
-        ]);
-    }
-
     public function adminDashboard() {
 
         session()->flash('notification', [
@@ -60,6 +52,7 @@ class MainController extends Controller
         $data->name = $request->name;
         $data->username = $request->username;
         $data->email = $request->email;
+        $data->phone = $request->phone;
         
         if ($request->file('profile')) {
             $file = $request->file('profile');
