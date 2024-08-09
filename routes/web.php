@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\WorkExperienceController;
+
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PortfolioController;
@@ -48,6 +50,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // ABOUT
     Route::get('/view/about/slider', [AboutController::class, 'viewAboutSlider'])->name('view.about.slider');
     Route::post('/update/about/slider', [AboutController::class, 'updateAboutSlider'])->name('update.about.slider');
+
+    // CLIENTS
+    Route::get('/view/work/experience', [WorkExperienceController::class, 'viewWorkExperience'])->name('view.work.experience');
+    Route::get('/form/add/work/experience', [WorkExperienceController::class, 'addFormWorkExperience'])->name('form.add.work.experience');
+    Route::post('/store/work/experience', [WorkExperienceController::class, 'storeWorkExperience'])->name('store.work.experience');
+    Route::get('/form/edit/work/experience/{id}', [WorkExperienceController::class, 'editFormWorkExperience'])->name('form.edit.work.experience');
+    Route::put('/update/work/experience/{id}', [WorkExperienceController::class, 'updateWorkExperience'])->name('update.work.experience');
+    Route::delete('/delete/work/experience', [WorkExperienceController::class, 'deleteWorkExperience'])->name('delete.work.experience');
 });
 
 require __DIR__.'/auth.php';

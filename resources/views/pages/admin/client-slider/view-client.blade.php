@@ -52,9 +52,14 @@
                                         <td data-field="description">{{ $item->description }}</td>
                                         <td data-field="profile">{{ $item->profile }}</td>
                                         <td>
-                                            <a class="btn btn-outline-secondary btn-sm edit" title="Edit">
+                                            <a class="btn btn-outline-secondary btn-sm edit" title="Edit" href="">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
+                                            <form action="">
+                                                <a class="btn btn-outline-secondary btn-sm edit" title="Edit" href="">
+                                                    <i class="fas ri-delete-bin-line"></i>
+                                                </a>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
